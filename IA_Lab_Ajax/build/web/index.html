@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+           function CheckName(){
+               var name = document.getElementById("name").value ;
+               var xmlhttp = new XMLHttpRequest();
+               
+               xmlhttp.open("GET","CheckServ?name="+name,true);
+               xmlhttp.send();
+               xmlhttp.onreadystatechange = function(){
+                   if(xmlhttp.readyState==4 && xmlhttp.status == 200){
+                       document.getElementById("SS").innerHTML = xmlhttp.responseText;
+                   }
+               }
+           } 
+        </script>
+        <form action="CheckServ">
+            <table>
+                <tr>
+                    <td>
+                        <input type="text" id="name" name="name">
+                    </td>
+                    <td>
+                        <input type="button" name="checkBtn" value="Check" onclick="CheckName()"/>
+                    </td>            
+                </tr>
+                
+                <tr>
+                    <td><input type="submit" value="Submit"></td>
+                </tr>
+                <tr>
+                <br color="blue"/>
+                <b> <div id="SS"></div></b>
+                </tr>
+                
+            </table>
+            
+            
+            
+        </form>
+    </body>
+</html>

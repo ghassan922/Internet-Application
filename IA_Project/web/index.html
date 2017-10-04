@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Update Admin</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+            function Update(){
+                var Name =  document.getElementById("name").value ;
+                var Pass =  document.getElementById("pass").value ;
+                var Email = document.getElementById("email").value;
+                var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.open("POST","UpdateAdmin?name="+Name+"&pass="+Pass+"&email="+Email,true);
+                    xmlhttp.send();
+                    xmlhttp.onreadystatechange = function(){
+                   if( xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                       document.getElementById("ss").innerHTML = xmlhttp.responseText.toString();
+                   }
+                   }
+            }
+        </script>
+        <script type="text/javascript">
+            function openPage(pageURL)
+            {
+                window.location.href = pageURL;
+            }
+        </script>
+    <center>
+        <h1>Hi, Admin</h1>
+        <form action="UpdateAdmin.jsp">
+            <input type="submit" name="BTN" value="UpdateAdmin"/>
+        </form><!--
+        <form action="HomePage" method="post">
+            
+            
+            <table>
+                <tr>
+                    <td>Admin Name : </td>
+                    <td><input type="text" name="UpdatedName" id="name"/></td>
+                </tr>
+                
+                <tr>
+                    <td>Admin Password : </td>
+                    <td><input type="password" name="UpdatedPass" id="pass"/></td>
+                </tr>
+                <tr>
+                    <td>Admin E-mail : </td>
+                    <td><input type="text" name="UpdatedEmail" id="email"/></td>
+                </tr>
+                <tr>
+                    <td><input type="button" name="UpdateBtn" id="UpdateBtn" value="Update" onclick="Update()" /></td>
+                    <td> 
+                        <input type="button" name="LogOutBtn" id="LogOutBtn" value="LogOut" onclick="openPage('HomePage')"/>
+                    </td>
+                </tr>
+            </table>
+            
+        </form>
+      
+        
+        
+        <div id="ss"></div>
+    </center>-->
+    </body>
+</html>
